@@ -11,9 +11,14 @@ class RouteLog extends Model
         'route',
         'uri',
         'payload',
+        'parameters',
         'response_status',
         'auth_id',
         'ip_address',
         'user_agent',
+    ];
+
+    protected $casts = [
+        'parameters' => 'json',
     ];
 }

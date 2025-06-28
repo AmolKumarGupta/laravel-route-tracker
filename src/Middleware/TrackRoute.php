@@ -24,6 +24,7 @@ class TrackRoute
             'route' => $request->route()->getName(),
             'uri' => $request->getRequestUri(),
             'payload' => json_encode($request->all()),
+            'parameters' => $request->route()->parameters,
             'response_status' => $response->getStatusCode(),
             'auth_id' => $request->user() instanceof User ? $request->user()->getAuthIdentifierName() : null,
             'ip_address' => $request->ip(),
