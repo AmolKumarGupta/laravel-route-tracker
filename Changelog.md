@@ -4,3 +4,7 @@
 
 ### Feature
  - 
+
+
+### Fix
+ - `auth_id` is not populating properly in route_logs

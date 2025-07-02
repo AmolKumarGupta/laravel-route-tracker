@@ -26,7 +26,7 @@ class TrackRoute
             'payload' => json_encode($request->all()),
             'parameters' => $request->route()->parameters,
             'response_status' => $response->getStatusCode(),
-            'auth_id' => $request->user() instanceof User ? $request->user()->getAuthIdentifierName() : null,
+            'auth_id' => $request->user() instanceof User ? $request->user()->getAuthIdentifier() : null,
             'ip_address' => $request->ip(),
             'user_agent' => $request->header('User-Agent'),
         ]);
