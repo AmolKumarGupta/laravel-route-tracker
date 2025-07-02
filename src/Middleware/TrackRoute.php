@@ -19,6 +19,14 @@ class TrackRoute
     {
         $response = $next($request);
 
+        /**
+         * Checks if tracking is enabled in the configuration or not,
+         * if not enabled, it will skip the process.
+         */
+        if (config('route-tracker.enabled') === false) {
+            return $response;
+        }
+
         RouteLog::create([ // @phpstan-ignore staticMethod.notFound
             'method' => $request->method(),
             'route' => $request->route()->getName(),

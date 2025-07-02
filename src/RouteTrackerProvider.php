@@ -11,6 +11,7 @@ class RouteTrackerProvider extends PackageServiceProvider
     {
         $package
             ->name('route-tracker')
+            ->hasConfigFile()
             ->hasMigrations('create_route_log_table');
     }
 }
