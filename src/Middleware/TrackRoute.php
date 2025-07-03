@@ -2,9 +2,7 @@
 
 namespace Amol\LaravelRouteTracker\Middleware;
 
-use Amol\LaravelRouteTracker\Models\RouteLog;
 use Closure;
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -27,17 +25,9 @@ class TrackRoute
             return $response;
         }
 
-        RouteLog::create([ // @phpstan-ignore staticMethod.notFound
-            'method' => $request->method(),
-            'route' => $request->route()->getName(),
-            'uri' => $request->getRequestUri(),
-            'payload' => json_encode($request->all()),
-            'parameters' => $request->route()->parameters,
-            'response_status' => $response->getStatusCode(),
-            'auth_id' => $request->user() instanceof User ? $request->user()->getAuthIdentifier() : null,
-            'ip_address' => $request->ip(),
-            'user_agent' => $request->header('User-Agent'),
-        ]);
+        /** @var \Amol\LaravelRouteTracker\RouteTracker */
+        $instance = app('route-tracker');
+        $instance->track($request, $response);
 
         return $response;
     }

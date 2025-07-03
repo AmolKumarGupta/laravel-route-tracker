@@ -13,5 +13,13 @@ class RouteTrackerProvider extends PackageServiceProvider
             ->name('route-tracker')
             ->hasConfigFile()
             ->hasMigrations('create_route_log_table');
+
+        $this->app->singleton('route-tracker.manager', function ($app) {
+            return new RouteTrackerManager($app);
+        });
+
+        $this->app->bind('route-tracker', function ($app) {
+            return new RouteTracker($app);
+        });
     }
 }
