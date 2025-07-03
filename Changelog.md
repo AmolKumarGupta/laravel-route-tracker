@@ -3,6 +3,7 @@
 ## 0.0.1
 
 ### Feature
+ - implement driver system with manager ([#3](https://github.com/AmolKumarGupta/laravel-route-tracker/issues/3))
  - add `route-tracker` config ([#1](https://github.com/AmolKumarGupta/laravel-route-tracker/issues/1))
 
 
