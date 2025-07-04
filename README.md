@@ -34,16 +34,13 @@ The package automatically tracks all route hits when the middleware is enabled.
 
 ### Middleware
 
-Add the middleware to your `app/Http/Kernel.php`:
+Add the middleware to your routes:
 
 ```php
-protected $middleware = [
-    // ...existing code...
-    \Amol\LaravelRouteTracker\Middleware\TrackRoute::class,
-];
+Route::middleware(\Amol\LaravelRouteTracker\Middleware\TrackRoute::class)->group(function () {
+    // ...your routes...
+});
 ```
-
-Or use it on specific routes:
 
 ```php
 // coming soon
@@ -60,11 +57,15 @@ Options include:
 
 - Enable/disable tracking
 - Choose storage driver
-- Exclude specific routes or methods
+- Exclude specific routes or methods (Coming soon)
 
 ## Viewing Tracked Routes
 
 Tracked route data is stored in the `route_logs` table by default. You can query this table or build custom dashboards.
+
+## Use Cases
+
+It can be used for storing webhooks called by third-party services, like mailgun, stripe etc, by adding middleware in it.
 
 ## Testing
 
