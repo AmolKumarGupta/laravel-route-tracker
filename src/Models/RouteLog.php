@@ -18,6 +18,11 @@ class RouteLog extends Model
         'user_agent',
     ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
     protected $casts = [
         'parameters' => 'json',
     ];

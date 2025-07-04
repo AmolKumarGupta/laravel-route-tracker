@@ -34,7 +34,7 @@ abstract class TestCase extends Orchestra
         artisan($this, 'migrate');
 
         $this->beforeApplicationDestroyed(
-            fn() => artisan($this, 'migrate:rollback')
+            fn () => artisan($this, 'migrate:rollback')
         );
     }
 }
