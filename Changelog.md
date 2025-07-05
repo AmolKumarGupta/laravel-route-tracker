@@ -8,4 +8,5 @@
 
 
 ### Fix
+ - fix service provider autoloading ([#6](https://github.com/AmolKumarGupta/laravel-route-tracker/issues/6))
  - `auth_id` is not populating properly in route_logs
