@@ -1,5 +1,7 @@
 # Laravel Route Tracker
 
+[![run-tests](https://github.com/AmolKumarGupta/laravel-route-tracker/actions/workflows/run-tests.yml/badge.svg)](https://github.com/AmolKumarGupta/laravel-route-tracker/actions/workflows/run-tests.yml)
+
 A Laravel package to track and log route usage in your application. Useful for analytics, debugging, and monitoring which routes are accessed and how often.
 
 ## Features
