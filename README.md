@@ -10,6 +10,14 @@ A Laravel package to track and log route usage in your application. Useful for a
 - Easy integration with Laravel middleware
 - Configurable storage (database, log, etc.)
 
+## Support
+
+| Laravel version | Supported |
+| :-------------: | :-------: |
+| Laravel 12      | ✅        |
+| Laravel 11      | ✅        |
+
+
 ## Installation
 
 Install via Composer:

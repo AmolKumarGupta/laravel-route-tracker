@@ -17,7 +17,7 @@ class DatabaseDriver implements Driver
             'route' => $request->route()->getName(),
             'uri' => $request->getRequestUri(),
             'payload' => json_encode($request->all()),
-            'parameters' => $request->route()->parameters,
+            'parameters' => $request->route()->originalParameters(),
             'response_status' => $response->getStatusCode(),
             'auth_id' => $request->user() instanceof User ? $request->user()->getAuthIdentifier() : null,
             'ip_address' => $request->ip(),
