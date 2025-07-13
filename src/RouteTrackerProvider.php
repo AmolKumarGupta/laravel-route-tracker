@@ -2,6 +2,8 @@
 
 namespace Amol\LaravelRouteTracker;
 
+use Amol\LaravelRouteTracker\Middleware\TrackRoute;
+use Illuminate\Routing\Router;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -21,5 +23,16 @@ class RouteTrackerProvider extends PackageServiceProvider
         $this->app->bind('route-tracker', function ($app) {
             return new RouteTracker($app);
         });
+    }
+
+    /**
+     * @return void
+     */
+    public function boot()
+    {
+        parent::boot();
+
+        $router = $this->app->get(Router::class);
+        $router->aliasMiddleware('track.route', TrackRoute::class);
     }
 }

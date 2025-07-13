@@ -39,13 +39,6 @@ The package automatically tracks all route hits when the middleware is enabled.
 Add the middleware to your routes:
 
 ```php
-Route::middleware(\Amol\LaravelRouteTracker\Middleware\TrackRoute::class)->group(function () {
-    // ...your routes...
-});
-```
-
-```php
-// coming soon
 Route::middleware(['track.route'])->group(function () {
     // ...your routes...
 });
