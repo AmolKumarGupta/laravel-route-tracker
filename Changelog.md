@@ -1,6 +1,12 @@
 # Changelog
 
-## 0.0.1
+## 1.0.2 - 2025-07-14
+
+### Fix
+- resolve route parameters using the actual value instead of the model instance.
+
+
+## 0.0.1 - 2025-07-14
 
 ### Feature
  - add middleware alias ([#11](https://github.com/AmolKumarGupta/laravel-route-tracker/issues/11))
