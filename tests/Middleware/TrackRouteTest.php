@@ -50,3 +50,29 @@ it('should track the route with parameters', function () {
     expect($routeLog->response_status)->toBe(200);
     expect($routeLog->auth_id)->toBeNull();
 });
+
+
+it('should track with middleware alias', function () {
+    $router = app('router');
+
+    $router->get('/test', function () {
+        return 'Test Route';
+    })->middleware(['track.route'])
+        ->name('test.index');
+
+    $response = $this->get('/test');
+
+    $response->assertStatus(200);
+    $response->assertSee('Test Route');
+
+    $routeLog = \Amol\LaravelRouteTracker\Models\RouteLog::first();
+
+    expect($routeLog)->not->toBeNull();
+    expect($routeLog->method)->toBe('GET');
+    expect($routeLog->route)->toBe('test.index');
+    expect($routeLog->uri)->toBe('/test');
+    expect($routeLog->payload)->toBe('[]');
+    expect($routeLog->parameters)->toBe([]);
+    expect($routeLog->response_status)->toBe(200);
+    expect($routeLog->auth_id)->toBeNull();
+});
